@@ -3,11 +3,10 @@ package com.adryanev.sportsleague.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.adryanev.sportsleague.data.LigaRepository
+import com.adryanev.sportsleague.data.models.local.Liga
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel internal constructor(ligaRepository: LigaRepository): ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    val liga :LiveData<List<Liga>> = ligaRepository.getLiga()
 }
