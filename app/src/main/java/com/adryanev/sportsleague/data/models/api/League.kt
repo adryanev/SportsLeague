@@ -1,0 +1,95 @@
+package com.adryanev.sportsleague.data.models.api
+
+
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+data class League(
+    @Json(name = "dateFirstEvent")
+    var dateFirstEvent: String? = null,
+    @Json(name = "idCup")
+    var idCup: String? = null,
+    @Json(name = "idLeague")
+    var idLeague: String? = null,
+    @Json(name = "idSoccerXML")
+    var idSoccerXML: String? = null,
+    @Json(name = "intFormedYear")
+    var intFormedYear: String? = null,
+    @Json(name = "strBadge")
+    var strBadge: String? = null,
+    @Json(name = "strBanner")
+    var strBanner: String? = null,
+    @Json(name = "strComplete")
+    var strComplete: String? = null,
+    @Json(name = "strCountry")
+    var strCountry: String? = null,
+    @Json(name = "strDescriptionCN")
+    var strDescriptionCN: String? = null,
+    @Json(name = "strDescriptionDE")
+    var strDescriptionDE: String? = null,
+    @Json(name = "strDescriptionEN")
+    var strDescriptionEN: String? = null,
+    @Json(name = "strDescriptionES")
+    var strDescriptionES: String? = null,
+    @Json(name = "strDescriptionFR")
+    var strDescriptionFR: String? = null,
+    @Json(name = "strDescriptionHU")
+    var strDescriptionHU: String? = null,
+    @Json(name = "strDescriptionIL")
+    var strDescriptionIL: String? = null,
+    @Json(name = "strDescriptionIT")
+    var strDescriptionIT: String? = null,
+    @Json(name = "strDescriptionJP")
+    var strDescriptionJP: String? = null,
+    @Json(name = "strDescriptionNL")
+    var strDescriptionNL: String? = null,
+    @Json(name = "strDescriptionNO")
+    var strDescriptionNO: String? = null,
+    @Json(name = "strDescriptionPL")
+    var strDescriptionPL: String? = null,
+    @Json(name = "strDescriptionPT")
+    var strDescriptionPT: String? = null,
+    @Json(name = "strDescriptionRU")
+    var strDescriptionRU: String? = null,
+    @Json(name = "strDescriptionSE")
+    var strDescriptionSE: String? = null,
+    @Json(name = "strDivision")
+    var strDivision: String? = null,
+    @Json(name = "strFacebook")
+    var strFacebook: String? = null,
+    @Json(name = "strFanart1")
+    var strFanart1: String? = null,
+    @Json(name = "strFanart2")
+    var strFanart2: String? = null,
+    @Json(name = "strFanart3")
+    var strFanart3: String? = null,
+    @Json(name = "strFanart4")
+    var strFanart4: String? = null,
+    @Json(name = "strGender")
+    var strGender: String? = null,
+    @Json(name = "strLeague")
+    var strLeague: String? = null,
+    @Json(name = "strLeagueAlternate")
+    var strLeagueAlternate: String? = null,
+    @Json(name = "strLocked")
+    var strLocked: String? = null,
+    @Json(name = "strLogo")
+    var strLogo: String? = null,
+    @Json(name = "strNaming")
+    var strNaming: String? = null,
+    @Json(name = "strPoster")
+    var strPoster: String? = null,
+    @Json(name = "strRSS")
+    var strRSS: String? = null,
+    @Json(name = "strSport")
+    var strSport: String? = null,
+    @Json(name = "strTrophy")
+    var strTrophy: String? = null,
+    @Json(name = "strTwitter")
+    var strTwitter: String? = null,
+    @Json(name = "strWebsite")
+    var strWebsite: String? = null,
+    @Json(name = "strYoutube")
+    var strYoutube: String? = null
+)
