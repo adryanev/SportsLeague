@@ -1,19 +1,21 @@
 package com.adryanev.sportsleague.data
 
-import androidx.lifecycle.LiveData
 import com.adryanev.sportsleague.data.models.api.League
 import com.adryanev.sportsleague.data.models.api.LeagueDetailResponse
-import com.adryanev.sportsleague.utils.api.SportsApi
+import com.adryanev.sportsleague.utils.api.Resource
+import com.adryanev.sportsleague.utils.api.ResponseHandler
+import retrofit2.Response
+import java.lang.Exception
 
-class ApiRepositoryImpl(private val sportsApi: SportsApi): BaseNetworkRepository(), ApiRepository {
+class ApiRepositoryImpl(private val sportsApi: SportsApi, val responseHandler: ResponseHandler): ApiRepository {
 
 
-    override suspend fun getLeagueDetail(leagueId: Int): List<League?>? {
-        return  safeApiCall(
-            call = {
-                sportsApi.getLeagueDetail(leagueId).await()
-            },
-            error = "Gagal Mendapatkan Data Liga"
-        )?.leagues?.toList()
+    override suspend fun getLeagueDetail(leagueId: Int): Resource<LeagueDetailResponse> {
+        return try{
+            val response = sportsApi.getLeagueDetail(leagueId)
+            return responseHandler.handleSuccess(response)
+        } catch (e: Exception){
+            responseHandler.handleException(e)
+        }
     }
 }

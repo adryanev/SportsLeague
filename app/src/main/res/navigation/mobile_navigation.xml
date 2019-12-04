@@ -18,14 +18,17 @@
             app:popEnterAnim="@anim/fragment_fade_enter"
             app:popExitAnim="@anim/fragment_fade_exit" >
         </action>
-        <argument
-            android:name="leagueId"
-            app:argType="integer" />
+
     </fragment>
     <fragment
         android:id="@+id/leagueDetailFragment"
         android:name="com.adryanev.sportsleague.ui.leaguedetail.LeagueDetailFragment"
         android:label="league_detail_fragment"
-        tools:layout="@layout/league_detail_fragment" />
+        tools:layout="@layout/league_detail_fragment" >
+        <argument
+            android:name="leagueId"
+            app:argType="integer" />
+    </fragment>
+
 
 </navigation>

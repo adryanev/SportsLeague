@@ -2,6 +2,7 @@ package com.adryanev.sportsleague.bindings
 
 import android.net.Uri
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -15,6 +16,7 @@ fun bindImageFromRaw(view: ImageView, name: String?){
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, name: String?){
     if(!name.isNullOrEmpty()){
-        Glide.with(view.context).load(name).into(view)
+        val newUrl = name.replace("\\","")
+        Glide.with(view.context).load(newUrl).into(view)
     }
 }

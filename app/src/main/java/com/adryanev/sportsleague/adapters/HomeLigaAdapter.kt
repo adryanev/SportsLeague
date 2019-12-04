@@ -3,11 +3,13 @@ package com.adryanev.sportsleague.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.adryanev.sportsleague.data.models.local.Liga
 import com.adryanev.sportsleague.databinding.HomeLigaItemBinding
+import com.adryanev.sportsleague.ui.home.HomeFragmentDirections
 import org.jetbrains.anko.toast
 
 class HomeLigaAdapter : ListAdapter<Liga, HomeLigaAdapter.LigaViewHolder>(LigaDiffCallback()){
@@ -27,7 +29,9 @@ class HomeLigaAdapter : ListAdapter<Liga, HomeLigaAdapter.LigaViewHolder>(LigaDi
 
     private fun createOnClickListener(ligaId: Int): View.OnClickListener {
         return View.OnClickListener {
+            val direction = HomeFragmentDirections.actionNavigationHomeToLeagueDetailFragment(ligaId)
             it.context.toast("Kamu Ngeklik ID: ${ligaId}")
+            it.findNavController().navigate(direction)
         }
     }
 

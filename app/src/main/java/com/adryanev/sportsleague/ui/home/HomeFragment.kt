@@ -13,7 +13,7 @@ import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
-    val vm : HomeViewModel by viewModel()
+    private val vm : HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,

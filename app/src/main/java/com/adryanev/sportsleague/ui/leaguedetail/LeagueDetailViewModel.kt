@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.adryanev.sportsleague.data.ApiRepository
 import com.adryanev.sportsleague.data.models.api.League
+import com.adryanev.sportsleague.data.models.api.LeagueDetailResponse
+import com.adryanev.sportsleague.utils.api.Resource
+import retrofit2.Response
 
 class LeagueDetailViewModel internal constructor(apiRepository: ApiRepository, private val leagueId: Int): ViewModel() {
 
 
-    val detail: LiveData<List<League?>?> = liveData { emit(apiRepository.getLeagueDetail(leagueId)) }
+    val detail: LiveData<Resource<LeagueDetailResponse>> = liveData { emit(apiRepository.getLeagueDetail(leagueId)) }
 }

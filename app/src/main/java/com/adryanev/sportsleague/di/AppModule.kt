@@ -8,7 +8,7 @@ import org.koin.dsl.module
 
 val appModule = module {
     single<LigaRepository> { LigaRepositoryImpl() }
-    single<ApiRepository> { ApiRepositoryImpl(get()) }
+    single<ApiRepository> { ApiRepositoryImpl(get(), get()) }
 
 
 }

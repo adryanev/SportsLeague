@@ -7,5 +7,5 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
-    viewModel{ LeagueDetailViewModel(get(),getProperty("leagueId")) }
+    viewModel{ (parameter:Int)-> LeagueDetailViewModel(get(),parameter) }
 }
