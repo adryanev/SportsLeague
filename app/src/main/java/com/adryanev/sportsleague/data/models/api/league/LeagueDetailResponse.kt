@@ -1,6 +1,7 @@
-package com.adryanev.sportsleague.data.models.api
+package com.adryanev.sportsleague.data.models.api.league
 
 
+import com.adryanev.sportsleague.data.models.api.league.League
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

@@ -6,11 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
 
-import com.adryanev.sportsleague.R
-import com.adryanev.sportsleague.data.models.api.LeagueDetailResponse
+import com.adryanev.sportsleague.data.models.api.league.LeagueDetailResponse
 import com.adryanev.sportsleague.databinding.LeagueDetailFragmentBinding
 import com.adryanev.sportsleague.utils.api.Resource
 import com.adryanev.sportsleague.utils.api.Status

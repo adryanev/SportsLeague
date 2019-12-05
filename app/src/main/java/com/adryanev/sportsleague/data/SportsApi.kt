@@ -1,6 +1,6 @@
 package com.adryanev.sportsleague.data
 
-import com.adryanev.sportsleague.data.models.api.LeagueDetailResponse
+import com.adryanev.sportsleague.data.models.api.league.LeagueDetailResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

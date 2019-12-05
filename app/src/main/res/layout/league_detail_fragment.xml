@@ -6,7 +6,7 @@
     <data>
         <variable
             name="liga"
-            type="com.adryanev.sportsleague.data.models.api.League" />
+            type="com.adryanev.sportsleague.data.models.api.league.League" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.adryanev.sportsleague.data.models.api
+package com.adryanev.sportsleague.data.models.api.league
 
 
 import com.squareup.moshi.Json
