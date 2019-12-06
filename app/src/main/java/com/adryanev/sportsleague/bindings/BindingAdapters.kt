@@ -16,7 +16,6 @@ fun bindImageFromRaw(view: ImageView, name: String?){
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, name: String?){
     if(!name.isNullOrEmpty()){
-        val newUrl = name.replace("\\","")
-        Glide.with(view.context).load(newUrl).into(view)
+        Glide.with(view.context).load(name).into(view)
     }
 }

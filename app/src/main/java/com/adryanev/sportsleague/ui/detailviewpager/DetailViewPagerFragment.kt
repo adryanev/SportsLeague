@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -15,12 +14,11 @@ import com.adryanev.sportsleague.adapters.NEXT_MATCH_INDEX
 import com.adryanev.sportsleague.adapters.PREVIOUS_MATCH_INDEX
 import com.adryanev.sportsleague.data.models.api.league.LeagueDetailResponse
 import com.adryanev.sportsleague.databinding.FragmentDetailViewPagerBinding
-import com.adryanev.sportsleague.ui.leaguedetail.LeagueDetailFragmentArgs
 import com.adryanev.sportsleague.utils.api.Resource
 import com.adryanev.sportsleague.utils.api.Status
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.fragment_detail_view_pager.*
-import kotlinx.android.synthetic.main.league_detail_item.*
+import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.support.v4.toast
 import org.koin.android.ext.android.getKoin
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -41,17 +39,23 @@ class DetailViewPagerFragment : Fragment() {
     }
 
     private fun showError(message: String) {
-
+        binding.root.snackbar(message).show()
+        Timber.d(message)
     }
 
     private fun showLeagueLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        binding.shimmerViewContainer.startShimmer()
+
     }
 
     private fun showLeagueData(data: LeagueDetailResponse) {
         binding.apply {
+            shimmerViewContainer.stopShimmer()
+            shimmerViewContainer.visibility = View.GONE
             league = data.leagues?.get(0)
             imageRaw = argument.leagueImage
+            detailContainer.detailContainer.visibility = View.VISIBLE
+
         }
         Timber.d(binding.league?.strLeague)
 
@@ -82,7 +86,6 @@ class DetailViewPagerFragment : Fragment() {
         }.attach()
 
         binding.toolbar.setNavigationOnClickListener { view -> view.findNavController().navigateUp() }
-
         detailViewModel.leagueDetail.observe(viewLifecycleOwner,leagueObserver)
         return binding.root
     }

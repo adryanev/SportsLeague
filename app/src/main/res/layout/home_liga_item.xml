@@ -13,16 +13,19 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_edge"
+        android:layout_margin="16dp">
 
 
         <androidx.cardview.widget.CardView
-            android:layout_margin="16dp"
+            android:layout_margin="4dp"
             android:id="@+id/cvLiga"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/cardview_default_radius"
-            app:cardElevation="@dimen/cardview_default_elevation">
+            app:cardCornerRadius="12dp"
+            android:elevation="8dp"
+            android:theme="@style/Widget.MaterialComponents.CardView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
