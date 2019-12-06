@@ -4,4 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="cari_pertandingan">Cari Pertandingan</string>
+    <string name="score_separator">:</string>
+    <string name="logo_home">logo_home</string>
+    <string name="logo_away">logo_away</string>
 </resources>

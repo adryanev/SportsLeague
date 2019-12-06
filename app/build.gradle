@@ -80,13 +80,18 @@ dependencies {
     //fragments
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 
+    //viewpager
+    implementation "androidx.viewpager2:viewpager2:$viewPagerVersion"
+
     //room
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
     kapt "androidx.room:room-compiler:$roomVersion"
 
     //navigation
-
     implementation "androidx.navigation:navigation-fragment:$navigationVersion"
     implementation "androidx.navigation:navigation-ui:$navigationVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
@@ -127,6 +132,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     //shimmer
     implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+    implementation "com.todkars:shimmer-recyclerview:$shimmerRecyclerViewVersion"
 
 
     //testing dependencies

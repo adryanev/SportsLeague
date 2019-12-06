@@ -21,7 +21,7 @@ buildscript {
         ktxVersion = '1.1.0'
         lifecycleVersion = '2.2.0-rc02'
         legacySupportVersion = '1.0.0'
-        materialVersion = '1.0.0'
+        materialVersion = '1.1.0-alpha09'
         moshiVersion = '1.9.2'
         navigationVersion = '2.1.0'
         recyclerViewVersion = '1.1.0'
@@ -29,11 +29,13 @@ buildscript {
         roomVersion = '2.2.2'
         runnerVersion = '1.2.0'
         shimmerVersion = '0.5.0'
+        shimmerRecyclerViewVersion= '0.4.0'
         stethoVersion = '1.5.1'
         timberVersion = '4.7.1'
         truthVersion = '0.42'
         testExtJunit = '1.1.0'
         uiAutomatorVersion = '2.2.0'
+        viewPagerVersion = '1.0.0'
         workVersion = '2.2.0'
     }
     repositories {

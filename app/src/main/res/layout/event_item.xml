@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="event"
+            type="com.adryanev.sportsleague.data.models.api.event.Event" />
+        <variable
+            name="teamHome"
+            type="com.adryanev.sportsleague.data.models.api.team.Team" />
+        <variable
+            name="teamAway"
+            type="com.adryanev.sportsleague.data.models.api.team.Team" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_margin="@dimen/activity_horizontal_margin">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/event_iv_home"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/logo_home"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars"
+                    app:imageFromUrl="@{teamHome.strTeamBadge}"/>
+
+                <ImageView
+                    android:id="@+id/event_iv_away"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/logo_away"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars"
+                    app:imageFromUrl="@{teamAway.strTeamBadge}"
+                    />
+
+                <TextView
+                    android:id="@+id/event_tv_score_separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/score_separator"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    app:layout_constraintBottom_toBottomOf="@+id/event_tv_score_home"
+                    app:layout_constraintEnd_toStartOf="@+id/event_tv_away_score"
+                    app:layout_constraintStart_toEndOf="@+id/event_tv_score_home"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.76" />
+
+                <TextView
+                    android:id="@+id/event_tv_score_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{event.intHomeScore}"
+                    tools:text="0"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    app:layout_constraintBottom_toBottomOf="@+id/event_iv_home"
+                    app:layout_constraintStart_toEndOf="@+id/event_iv_home"
+                    app:layout_constraintTop_toTopOf="@+id/event_iv_home" />
+
+                <TextView
+                    android:id="@+id/event_tv_away_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{event.intAwayScore}"
+                    tools:text="0"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    app:layout_constraintBottom_toBottomOf="@+id/event_iv_away"
+                    app:layout_constraintEnd_toStartOf="@+id/event_iv_away"
+                    app:layout_constraintTop_toTopOf="@+id/event_iv_away" />
+
+                <TextView
+                    android:id="@+id/event_tv_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@{event.strHomeTeam}"
+                    tools:text="@tools:sample/full_names"
+                    app:layout_constraintEnd_toEndOf="@+id/event_iv_home"
+                    app:layout_constraintStart_toStartOf="@+id/event_iv_home"
+                    app:layout_constraintTop_toBottomOf="@+id/event_iv_home" />
+
+                <TextView
+                    android:id="@+id/event_tv_away"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@{event.strAwayTeam}"
+                    tools:text="@tools:sample/full_names"
+                    app:layout_constraintEnd_toEndOf="@+id/event_iv_away"
+                    app:layout_constraintStart_toStartOf="@+id/event_iv_away"
+                    app:layout_constraintTop_toBottomOf="@+id/event_iv_away" />
+
+                <TextView
+                    android:id="@+id/event_tv_event_datetime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@{event.strTime}"
+                    tools:text="@tools:sample/date/hhmmss"
+                    app:layout_constraintEnd_toEndOf="@+id/event_tv_score_separator"
+                    app:layout_constraintStart_toStartOf="@+id/event_tv_score_separator"
+                    app:layout_constraintTop_toBottomOf="@+id/event_tv_score_separator" />
+
+                <TextView
+                    android:id="@+id/event_tv_event_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{event.strCircuit}"
+                    tools:text="@tools:sample/cities"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/event_tv_event_datetime"
+                    app:layout_constraintStart_toStartOf="@+id/event_tv_event_datetime"
+                    app:layout_constraintTop_toBottomOf="@+id/event_tv_event_datetime" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</layout>

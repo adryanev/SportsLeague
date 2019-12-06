@@ -29,7 +29,7 @@ class HomeLigaAdapter : ListAdapter<Liga, HomeLigaAdapter.LigaViewHolder>(LigaDi
 
     private fun createOnClickListener(ligaId: Int): View.OnClickListener {
         return View.OnClickListener {
-            val direction = HomeFragmentDirections.actionNavigationHomeToLeagueDetailFragment(ligaId)
+            val direction = HomeFragmentDirections.actionNavigationHomeToDetailViewPagerFragment()
             it.context.toast("Kamu Ngeklik ID: ${ligaId}")
             it.findNavController().navigate(direction)
         }
