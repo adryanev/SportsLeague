@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
 
         (activity as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
-            title = "HOME"
 
         }
 

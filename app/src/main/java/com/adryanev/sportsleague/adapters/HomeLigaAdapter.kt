@@ -23,13 +23,13 @@ class HomeLigaAdapter : ListAdapter<Liga, HomeLigaAdapter.LigaViewHolder>(LigaDi
     override fun onBindViewHolder(holder: HomeLigaAdapter.LigaViewHolder, position: Int) {
         val liga = getItem(position)
         holder.apply {
-            bind(createOnClickListener(liga.id),liga)
+            bind(createOnClickListener(liga.id,liga.image),liga)
         }
     }
 
-    private fun createOnClickListener(ligaId: Int): View.OnClickListener {
+    private fun createOnClickListener(ligaId: Int,ligaImage:String): View.OnClickListener {
         return View.OnClickListener {
-            val direction = HomeFragmentDirections.actionNavigationHomeToDetailViewPagerFragment()
+            val direction = HomeFragmentDirections.actionNavigationHomeToDetailViewPagerFragment(ligaId,ligaImage)
             it.context.toast("Kamu Ngeklik ID: ${ligaId}")
             it.findNavController().navigate(direction)
         }
