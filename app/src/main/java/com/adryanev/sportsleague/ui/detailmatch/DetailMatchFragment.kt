@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.adryanev.sportsleague.data.models.api.event.EventResponse
@@ -61,6 +62,9 @@ class DetailMatchFragment : Fragment() {
             event = data.events?.get(0)
         }
 
+        vm.getTeamHome(binding.event?.idHomeTeam?.toInt()!!)
+        vm.getTeamAway(binding.event?.idAwayTeam?.toInt()!!)
+
 
     }
 
@@ -74,6 +78,12 @@ class DetailMatchFragment : Fragment() {
         }
         getKoin().setProperty("eventId", args.eventId!!.toInt())
         vm.evetDetail.observe(viewLifecycleOwner, observer)
+        vm.teamHome.observe(viewLifecycleOwner) {
+            binding.home = it
+        }
+        vm.teamAway.observe(viewLifecycleOwner) {
+            binding.away = it
+        }
         return binding.root
     }
 

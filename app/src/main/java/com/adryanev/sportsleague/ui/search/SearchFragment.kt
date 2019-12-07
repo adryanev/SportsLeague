@@ -44,12 +44,13 @@ class SearchFragment : Fragment() {
     }
 
     private fun showEventData(data: SearchResponse) {
-        Timber.d("Event Data Fetched: ${data.event?.get(0)?.strEvent}")
+
         binding.shimmerViewContainer.apply {
             stopShimmer()
             visibility = View.GONE
         }
-        adapter.submitList(data.event)
+        val newdata = data.event?.filter { it?.strSport == "Soccer" }
+        adapter.submitList(newdata)
 
     }
 

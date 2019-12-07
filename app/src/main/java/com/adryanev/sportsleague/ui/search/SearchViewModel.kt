@@ -11,7 +11,10 @@ class SearchViewModel internal constructor(val apiRepository: ApiRepository) : V
 
     val searchResult: LiveData<Resource<SearchResponse>> = query.switchMap {
         liveData {
-            emit(apiRepository.searchEvent(it))
+            val data = apiRepository.searchEvent(it)
+            emit(data)
         }
     }
+
+
 }
