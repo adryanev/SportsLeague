@@ -46,6 +46,7 @@
                     android:layout_height="wrap_content"
                     app:contentInsetStartWithNavigation="0dp"
                     app:layout_collapseMode="pin"
+                    app:menu="@menu/main_menu"
                     app:navigationIcon="@drawable/ic_detail_back">
 
                     <com.facebook.shimmer.ShimmerFrameLayout

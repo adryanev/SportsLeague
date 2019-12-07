@@ -5,6 +5,7 @@ import com.adryanev.sportsleague.ui.detailviewpager.DetailViewPagerViewModel
 import com.adryanev.sportsleague.ui.home.HomeViewModel
 import com.adryanev.sportsleague.ui.nextmatch.NextMatchViewModel
 import com.adryanev.sportsleague.ui.previousmatch.PreviousMatchViewModel
+import com.adryanev.sportsleague.ui.search.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -20,4 +21,5 @@ val viewModelModule = module {
     viewModel { NextMatchViewModel(get(), getProperty("leagueId")) }
     viewModel { PreviousMatchViewModel(get(), getProperty("leagueId")) }
     viewModel { DetailMatchViewModel(get(), getProperty("eventId")) }
+    viewModel { SearchViewModel(get()) }
 }

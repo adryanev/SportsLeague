@@ -1,16 +1,12 @@
 package com.adryanev.sportsleague.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import com.adryanev.sportsleague.MainActivity
+import androidx.navigation.fragment.findNavController
+import com.adryanev.sportsleague.MobileNavigationDirections
 import com.adryanev.sportsleague.R
 import com.adryanev.sportsleague.adapters.HomeLigaAdapter
 import com.adryanev.sportsleague.databinding.FragmentHomeBinding
@@ -19,7 +15,7 @@ import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
-    private val vm : HomeViewModel by viewModel()
+    private val vm: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +24,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val adapter = HomeLigaAdapter()
 
-        val binding = FragmentHomeBinding.inflate(inflater,container,false).apply {
+        val binding = FragmentHomeBinding.inflate(inflater, container, false).apply {
             homeRecyclerview.adapter = adapter
         }
 
@@ -36,19 +32,33 @@ class HomeFragment : Fragment() {
             setSupportActionBar(binding.toolbar)
 
         }
+        setHasOptionsMenu(true)
+        subscribeUi(adapter)
+        Timber.d("Opening HomeFragment")
 
-            subscribeUi(adapter)
-            Timber.d("Opening HomeFragment")
 
+        return binding.root
 
-            return binding.root
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.app_bar_search -> {
+                findNavController().navigate(MobileNavigationDirections.actionGlobalSearchFragment())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun subscribeUi(adapter: HomeLigaAdapter) {
 
-        vm.liga.observe(viewLifecycleOwner){
-            list -> adapter.submitList(list)
+        vm.liga.observe(viewLifecycleOwner) { list ->
+            adapter.submitList(list)
         }
 
     }

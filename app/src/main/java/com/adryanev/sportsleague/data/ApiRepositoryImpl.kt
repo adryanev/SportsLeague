@@ -2,6 +2,7 @@ package com.adryanev.sportsleague.data
 
 import com.adryanev.sportsleague.data.models.api.event.EventResponse
 import com.adryanev.sportsleague.data.models.api.league.LeagueDetailResponse
+import com.adryanev.sportsleague.data.models.api.search.SearchResponse
 import com.adryanev.sportsleague.data.models.api.team.TeamResponse
 import com.adryanev.sportsleague.utils.api.Resource
 import com.adryanev.sportsleague.utils.api.ResponseHandler
@@ -50,6 +51,15 @@ class ApiRepositoryImpl(private val sportsApi: SportsApi, val responseHandler: R
     override suspend fun getEventDetail(eventId: Int): Resource<EventResponse> {
         return try {
             val response = sportsApi.getEventDetail(eventId)
+            return responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    override suspend fun searchEvent(query: String): Resource<SearchResponse> {
+        return try {
+            val response = sportsApi.searchEvent(query)
             return responseHandler.handleSuccess(response)
         } catch (e: Exception) {
             responseHandler.handleException(e)

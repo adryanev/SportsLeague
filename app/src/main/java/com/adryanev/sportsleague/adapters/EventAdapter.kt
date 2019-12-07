@@ -7,9 +7,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.adryanev.sportsleague.MobileNavigationDirections
 import com.adryanev.sportsleague.data.models.api.event.Event
 import com.adryanev.sportsleague.databinding.EventItemBinding
-import com.adryanev.sportsleague.ui.detailviewpager.DetailViewPagerFragmentDirections
 
 class EventAdapter : ListAdapter<Event, EventAdapter.EventViewHolder>(NextMatchDiffCallback()) {
 
@@ -33,9 +33,9 @@ class EventAdapter : ListAdapter<Event, EventAdapter.EventViewHolder>(NextMatchD
 
     private fun createOnClickListener(eventId: String?): View.OnClickListener {
         return View.OnClickListener {
-            val direction =
-                DetailViewPagerFragmentDirections.actionDetailViewPagerFragmentToDetailMatch(eventId)
-            it.findNavController().navigate(direction)
+            val directions = MobileNavigationDirections.actionGlobalDetailMatch(eventId)
+            it.findNavController()
+                .navigate(directions)
         }
     }
 
