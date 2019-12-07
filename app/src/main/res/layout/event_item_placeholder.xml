@@ -2,110 +2,105 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
+    android:id="@+id/event_item_placeholder_container"
     android:layout_width="match_parent"
-    >
+    android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/event_tv_score_separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/score_separator"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toBottomOf="@+id/event_tv_score_home"
+        app:layout_constraintEnd_toStartOf="@+id/event_tv_away_score"
+        app:layout_constraintStart_toEndOf="@+id/event_tv_score_home"
+        app:layout_constraintTop_toTopOf="@+id/event_tv_score_home" />
 
-                <TextView
-                    android:id="@+id/event_tv_score_separator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/score_separator"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    app:layout_constraintBottom_toBottomOf="@+id/event_tv_score_home"
-                    app:layout_constraintEnd_toStartOf="@+id/event_tv_away_score"
-                    app:layout_constraintStart_toEndOf="@+id/event_tv_score_home"
-                    app:layout_constraintTop_toTopOf="@+id/event_tv_score_home" />
+    <View
+        android:id="@+id/event_tv_score_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/background"
+        app:layout_constraintBottom_toBottomOf="@+id/event_tv_home"
+        app:layout_constraintStart_toEndOf="@+id/event_tv_home"
+        app:layout_constraintTop_toTopOf="@+id/event_tv_home" />
 
-                <View
-                    android:id="@+id/event_tv_score_home"
-                    android:background="@color/background"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/event_tv_home"
-                    app:layout_constraintStart_toEndOf="@+id/event_tv_home"
-                    app:layout_constraintTop_toTopOf="@+id/event_tv_home"
-                    />
+    <View
+        android:id="@+id/event_tv_away_score"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/background"
+        android:text="@{event.intAwayScore}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintBottom_toBottomOf="@+id/event_tv_away"
+        app:layout_constraintEnd_toStartOf="@+id/event_tv_away"
+        app:layout_constraintTop_toTopOf="@+id/event_tv_away"
+        tools:text="0" />
 
-                <View
-                    android:id="@+id/event_tv_away_score"
-                    android:background="@color/background"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@{event.intAwayScore}"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                    app:layout_constraintBottom_toBottomOf="@+id/event_tv_away"
-                    app:layout_constraintEnd_toStartOf="@+id/event_tv_away"
-                    app:layout_constraintTop_toTopOf="@+id/event_tv_away"
-                    tools:text="0" />
+    <View
+        android:id="@+id/event_tv_home"
+        android:layout_width="72dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/background"
+        android:text="@{event.strHomeTeam}"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/full_names" />
 
-                <View
-                    android:id="@+id/event_tv_home"
-                    android:layout_width="72dp"
-                    android:layout_height="16dp"
-                    android:background="@color/background"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@{event.strHomeTeam}"
-                    android:textAlignment="viewStart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:text="@tools:sample/full_names" />
+    <View
+        android:id="@+id/event_tv_away"
+        android:layout_width="72dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/background"
+        android:text="@{event.strAwayTeam}"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/full_names" />
 
-                <View
-                    android:id="@+id/event_tv_away"
-                    android:layout_width="72dp"
-                    android:layout_height="16dp"
-                    android:background="@color/background"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@{event.strAwayTeam}"
-                    android:textAlignment="viewEnd"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:text="@tools:sample/full_names" />
+    <View
+        android:id="@+id/event_tv_event_date"
+        android:layout_width="100dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/background"
+        android:text="@{event.strDate}"
+        app:layout_constraintEnd_toEndOf="@+id/event_tv_score_separator"
+        app:layout_constraintStart_toStartOf="@+id/event_tv_score_separator"
+        app:layout_constraintTop_toBottomOf="@+id/event_tv_score_separator"
+        tools:text="@tools:sample/date/hhmmss" />
 
-                <View
-                    android:id="@+id/event_tv_event_date"
-                    android:layout_width="65dp"
-                    android:layout_height="16dp"
-                    android:background="@color/background"
-                    android:layout_marginTop="24dp"
-                    android:text="@{event.strDate}"
-                    app:layout_constraintEnd_toEndOf="@+id/event_tv_score_separator"
-                    app:layout_constraintStart_toStartOf="@+id/event_tv_score_separator"
-                    app:layout_constraintTop_toBottomOf="@+id/event_tv_score_separator"
-                    tools:text="@tools:sample/date/hhmmss" />
-
-                <View
-                    android:id="@+id/event_tv_event_time"
-                    android:layout_width="65dp"
-                    android:layout_height="16dp"
-                    android:background="@color/background"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@{event.strTime}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/event_tv_event_date"
-                    app:layout_constraintStart_toStartOf="@+id/event_tv_event_date"
-                    app:layout_constraintTop_toBottomOf="@+id/event_tv_event_date"
-                    tools:text="@tools:sample/cities" />
-
+    <View
+        android:id="@+id/event_tv_event_time"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/background"
+        android:text="@{event.strTime}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/event_tv_event_date"
+        app:layout_constraintStart_toStartOf="@+id/event_tv_event_date"
+        app:layout_constraintTop_toBottomOf="@+id/event_tv_event_date"
+        tools:text="@tools:sample/cities" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

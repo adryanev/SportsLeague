@@ -1,21 +1,18 @@
 package com.adryanev.sportsleague.ui.nextmatch
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import org.koin.androidx.viewmodel.ext.android.viewModel
-
-
-import com.adryanev.sportsleague.R
 import com.adryanev.sportsleague.adapters.EventAdapter
 import com.adryanev.sportsleague.data.models.api.event.EventResponse
 import com.adryanev.sportsleague.databinding.NextMatchFragmentBinding
 import com.adryanev.sportsleague.utils.api.Resource
 import com.adryanev.sportsleague.utils.api.Status
-import org.koin.android.ext.android.getKoin
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 class NextMatchFragment : Fragment() {
@@ -27,8 +24,8 @@ class NextMatchFragment : Fragment() {
     val viewModel: NextMatchViewModel by viewModel()
 
     lateinit var binding: NextMatchFragmentBinding
-    val observer = Observer<Resource<EventResponse>>{
-        when(it.status){
+    val observer = Observer<Resource<EventResponse>> {
+        when (it.status) {
             Status.SUCCESS -> showEventData(it.data!!)
             Status.ERROR -> showError(it.message!!)
             Status.LOADING -> showEventLoading()
@@ -56,17 +53,12 @@ class NextMatchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = NextMatchFragmentBinding.inflate(inflater,container,false)
+        binding = NextMatchFragmentBinding.inflate(inflater, container, false)
         binding.nextMatchRv.adapter = adapter
-        viewModel.nextMatch.observe(viewLifecycleOwner,observer)
+        viewModel.nextMatch.observe(viewLifecycleOwner, observer)
 
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
 
 }

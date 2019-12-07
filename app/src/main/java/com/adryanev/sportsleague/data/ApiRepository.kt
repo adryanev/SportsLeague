@@ -7,8 +7,9 @@ import com.adryanev.sportsleague.utils.api.Resource
 
 interface ApiRepository {
 
-    suspend fun getLeagueDetail(leagueId: Int) : Resource<LeagueDetailResponse>
+    suspend fun getLeagueDetail(leagueId: Int): Resource<LeagueDetailResponse>
     suspend fun getNextMatch(leagueId: Int): Resource<EventResponse>
-    suspend fun getPreviousMatch(leagueId: Int) : Resource<EventResponse>
+    suspend fun getPreviousMatch(leagueId: Int): Resource<EventResponse>
     suspend fun getTeamDetail(teamId: Int): Resource<TeamResponse>
+    suspend fun getEventDetail(eventId: Int): Resource<EventResponse>
 }

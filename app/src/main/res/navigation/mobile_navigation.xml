@@ -9,28 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.adryanev.sportsleague.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_leagueDetailFragment"
-            app:destination="@+id/leagueDetailFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" >
-        </action>
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_detailViewPagerFragment"
             app:destination="@id/detailViewPagerFragment" />
 
-    </fragment>
-    <fragment
-        android:id="@+id/leagueDetailFragment"
-        android:name="com.adryanev.sportsleague.ui.leaguedetail.LeagueDetailFragment"
-        android:label="league_detail_fragment"
-        tools:layout="@layout/league_detail_fragment" >
-        <argument
-            android:name="leagueId"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/detailViewPagerFragment"
@@ -42,6 +25,19 @@
             app:argType="integer" />
         <argument
             android:name="leagueImage"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_detailViewPagerFragment_to_detailMatch"
+            app:destination="@id/detailMatch" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMatch"
+        android:name="com.adryanev.sportsleague.ui.detailmatch.DetailMatchFragment"
+        android:label="DetailMatch"
+        tools:layout="@layout/fragment_detail_match">
+        <argument
+            android:name="eventId"
             app:argType="string"
             app:nullable="true" />
     </fragment>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/rc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/red_card"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/yc"
+        app:layout_constraintStart_toStartOf="@+id/yc"
+        app:layout_constraintTop_toBottomOf="@+id/yc"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/rc_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rc" />
+
+    <View
+        android:id="@+id/rc_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/rc" />
+
+    <TextView
+        android:id="@+id/yc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/yellow_card"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/goal"
+        app:layout_constraintStart_toStartOf="@+id/goal"
+        app:layout_constraintTop_toBottomOf="@+id/goal" />
+
+    <View
+        android:id="@+id/yc_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/yc" />
+
+    <View
+        android:id="@+id/yc_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/yc" />
+
+    <TextView
+        android:id="@+id/goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/goal"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/sb"
+        app:layout_constraintStart_toStartOf="@+id/sb"
+        app:layout_constraintTop_toBottomOf="@+id/sb" />
+
+    <View
+        android:id="@+id/goal_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/goal" />
+
+    <View
+        android:id="@+id/goal_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/goal" />
+
+    <TextView
+        android:id="@+id/sb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/subtitution"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/fw"
+        app:layout_constraintStart_toStartOf="@+id/fw"
+        app:layout_constraintTop_toBottomOf="@+id/fw" />
+
+    <View
+        android:id="@+id/sb_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/sb" />
+
+    <View
+        android:id="@+id/sb_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sb" />
+
+    <TextView
+        android:id="@+id/fw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/forward"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/mid"
+        app:layout_constraintStart_toStartOf="@+id/mid"
+        app:layout_constraintTop_toBottomOf="@+id/mid" />
+
+    <View
+        android:id="@+id/fw_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fw" />
+
+    <View
+        android:id="@+id/fw_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/fw" />
+
+    <TextView
+        android:id="@+id/mid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/mid"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/def"
+        app:layout_constraintStart_toStartOf="@+id/def"
+        app:layout_constraintTop_toBottomOf="@+id/def" />
+
+    <View
+        android:id="@+id/mid_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mid" />
+
+    <View
+        android:id="@+id/mid_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/mid" />
+
+    <View
+        android:id="@+id/event"
+        android:layout_width="120dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/background"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/teamHome"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/background"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        tools:text="@tools:sample/full_names" />
+
+    <View
+        android:id="@+id/teamAway"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        android:textAlignment="viewEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        tools:text="@tools:sample/full_names" />
+
+    <View
+        android:id="@+id/date"
+        android:layout_width="80dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/background"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/event"
+        app:layout_constraintStart_toStartOf="@+id/event"
+        app:layout_constraintTop_toBottomOf="@+id/event" />
+
+    <TextView
+        android:id="@+id/gk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/gk"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/teamAway"
+        app:layout_constraintStart_toEndOf="@+id/teamHome"
+        app:layout_constraintTop_toBottomOf="@+id/teamHome" />
+
+    <View
+        android:id="@+id/gk_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/gk"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gk" />
+
+    <View
+        android:id="@+id/def_home"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toStartOf="@+id/def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/def" />
+
+    <View
+        android:id="@+id/gk_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/gk" />
+
+    <View
+        android:id="@+id/def_away"
+        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gk"
+        app:layout_constraintTop_toTopOf="@+id/def" />
+
+    <TextView
+        android:id="@+id/def"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/defense"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/gk"
+        app:layout_constraintStart_toStartOf="@+id/gk"
+        app:layout_constraintTop_toBottomOf="@+id/gk" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

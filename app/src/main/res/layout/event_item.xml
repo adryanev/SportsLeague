@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="event"
             type="com.adryanev.sportsleague.data.models.api.event.Event" />
+
         <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
     </data>
 
     <FrameLayout
+        android:id="@+id/event_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:layout_margin="@dimen/activity_horizontal_margin"
-        android:background="@drawable/card_edge"
-        >
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@drawable/card_edge">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
-            app:cardCornerRadius="12dp"
-            android:theme="@style/Widget.MaterialComponents.CardView"
             android:onClick="@{onClickListener}"
-            >
+            android:theme="@style/Widget.MaterialComponents.CardView"
+            app:cardCornerRadius="12dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-               >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/event_tv_score_separator"

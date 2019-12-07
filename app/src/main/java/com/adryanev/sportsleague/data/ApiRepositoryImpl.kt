@@ -5,25 +5,25 @@ import com.adryanev.sportsleague.data.models.api.league.LeagueDetailResponse
 import com.adryanev.sportsleague.data.models.api.team.TeamResponse
 import com.adryanev.sportsleague.utils.api.Resource
 import com.adryanev.sportsleague.utils.api.ResponseHandler
-import java.lang.Exception
 
-class ApiRepositoryImpl(private val sportsApi: SportsApi, val responseHandler: ResponseHandler): ApiRepository {
+class ApiRepositoryImpl(private val sportsApi: SportsApi, val responseHandler: ResponseHandler) :
+    ApiRepository {
 
 
     override suspend fun getLeagueDetail(leagueId: Int): Resource<LeagueDetailResponse> {
-        return try{
+        return try {
             val response = sportsApi.getLeagueDetail(leagueId)
             return responseHandler.handleSuccess(response)
-        } catch (e: Exception){
+        } catch (e: Exception) {
             responseHandler.handleException(e)
         }
     }
 
     override suspend fun getNextMatch(leagueId: Int): Resource<EventResponse> {
-        return try{
+        return try {
             val response = sportsApi.getNextMatch(leagueId)
-            return  responseHandler.handleSuccess(response)
-        } catch (e: Exception){
+            return responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
             responseHandler.handleException(e)
         }
     }
@@ -37,11 +37,21 @@ class ApiRepositoryImpl(private val sportsApi: SportsApi, val responseHandler: R
         }
 
     }
+
     override suspend fun getTeamDetail(teamId: Int): Resource<TeamResponse> {
-        return try{
+        return try {
             val response = sportsApi.getTeamById(teamId)
-            return  responseHandler.handleSuccess(response)
-        } catch (e: Exception){
+            return responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    override suspend fun getEventDetail(eventId: Int): Resource<EventResponse> {
+        return try {
+            val response = sportsApi.getEventDetail(eventId)
+            return responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
             responseHandler.handleException(e)
         }
     }

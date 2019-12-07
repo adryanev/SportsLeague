@@ -1,22 +1,18 @@
 package com.adryanev.sportsleague.ui.previousmatch
 
-import androidx.lifecycle.ViewModelProviders
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import org.koin.androidx.viewmodel.ext.android.viewModel
-
-
-import com.adryanev.sportsleague.R
 import com.adryanev.sportsleague.adapters.EventAdapter
 import com.adryanev.sportsleague.data.models.api.event.EventResponse
 import com.adryanev.sportsleague.databinding.PreviousMatchFragmentBinding
 import com.adryanev.sportsleague.utils.api.Resource
 import com.adryanev.sportsleague.utils.api.Status
-import org.koin.android.ext.android.getKoin
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 class PreviousMatchFragment : Fragment() {
@@ -27,8 +23,8 @@ class PreviousMatchFragment : Fragment() {
 
     lateinit var binding: PreviousMatchFragmentBinding
     val viewModel: PreviousMatchViewModel by viewModel()
-    val observer = Observer<Resource<EventResponse>>{
-        when(it.status){
+    val observer = Observer<Resource<EventResponse>> {
+        when (it.status) {
             Status.SUCCESS -> showEventData(it.data!!)
             Status.ERROR -> showError(it.message!!)
             Status.LOADING -> showEventLoading()
@@ -56,18 +52,13 @@ class PreviousMatchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = PreviousMatchFragmentBinding.inflate(inflater,container,false)
+        binding = PreviousMatchFragmentBinding.inflate(inflater, container, false)
         binding.apply {
             previousMatchRv.adapter = adapter
         }
 
-        viewModel.previousMatch.observe(viewLifecycleOwner,observer)
+        viewModel.previousMatch.observe(viewLifecycleOwner, observer)
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-               // TODO: Use the ViewModel
     }
 
 }
